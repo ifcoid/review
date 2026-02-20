@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literature Review — SLR Manager</title>
+    <meta name="description"
+        content="Manajemen Systematic Literature Review berbasis web. Rencanakan, lakukan, dan laporkan tinjauan literatur Anda.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Sidebar Overlay (mobile) -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">SLR Manager</span>
+                    <span class="brand-sub">Literature Review</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-label">Fase Utama</div>
+                <ul class="nav-list" id="navList">
+                    <li class="nav-item active" data-page="planning">
+                        <span class="nav-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M9 11l3 3L22 4" />
+                                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+                            </svg>
+                        </span>
+                        <span class="nav-label">Planning</span>
+                        <span class="nav-badge" id="badge-planning"></span>
+                    </li>
+                    <li class="nav-item" data-page="conducting">
+                        <span class="nav-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="M21 21l-4.35-4.35" />
+                            </svg>
+                        </span>
+                        <span class="nav-label">Conducting</span>
+                        <span class="nav-badge" id="badge-conducting"></span>
+                    </li>
+                    <li class="nav-item" data-page="studies">
+                        <span class="nav-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
+                            </svg>
+                        </span>
+                        <span class="nav-label">Studi</span>
+                        <span class="nav-badge" id="badge-studies"></span>
+                    </li>
+                    <li class="nav-item" data-page="analysis">
+                        <span class="nav-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="18" y1="20" x2="18" y2="10" />
+                                <line x1="12" y1="20" x2="12" y2="4" />
+                                <line x1="6" y1="20" x2="6" y2="14" />
+                            </svg>
+                        </span>
+                        <span class="nav-label">Analisis</span>
+                    </li>
+                    <li class="nav-item" data-page="reporting">
+                        <span class="nav-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                                <polyline points="14,2 14,8 20,8" />
+                                <line x1="16" y1="13" x2="8" y2="13" />
+                                <line x1="16" y1="17" x2="8" y2="17" />
+                                <polyline points="10,9 9,9 8,9" />
+                            </svg>
+                        </span>
+                        <span class="nav-label">Pelaporan</span>
+                    </li>
+                </ul>
+
+                <div class="nav-section-label" style="margin-top: 1.5rem;">Sistem</div>
+                <ul class="nav-list">
+                    <li class="nav-item nav-item-sm" id="exportDataBtn">
+                        <span class="nav-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                                <polyline points="7 10 12 15 17 10" />
+                                <line x1="12" y1="15" x2="12" y2="3" />
+                            </svg>
+                        </span>
+                        <span class="nav-label">Export Data</span>
+                    </li>
+                    <li class="nav-item nav-item-sm" id="importDataBtn">
+                        <span class="nav-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                                <polyline points="17 8 12 3 7 8" />
+                                <line x1="12" y1="3" x2="12" y2="15" />
+                            </svg>
+                        </span>
+                        <span class="nav-label">Import Data</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="review-title-wrap">
+                    <span class="review-label">Judul Review</span>
+                    <input type="text" id="reviewTitle" class="review-title-input"
+                        placeholder="Judul penelitian Anda..." maxlength="80">
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-wrapper">
+            <!-- Top Header -->
+            <header class="top-header">
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle sidebar">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="header-breadcrumb">
+                    <span id="pageTitleBreadcrumb">Planning</span>
+                </div>
+                <div class="header-actions">
+                    <div class="progress-mini" id="progressMini">
+                        <div class="progress-mini-bar" id="progressMiniBar"></div>
+                    </div>
+                    <span class="progress-label" id="progressLabel">0%</span>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <main class="page-content" id="pageContent">
+                <!-- Injected by JS -->
+                <div class="loading-overlay" id="loadingOverlay">
+                    <div class="spinner"></div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal Container -->
+    <div class="modal-backdrop hidden" id="modalBackdrop">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle"></h3>
+                <button class="modal-close" id="modalClose" aria-label="Tutup">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer" id="modalFooter"></div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Hidden file input for import -->
+    <input type="file" id="importFileInput" accept=".json" class="hidden">
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
